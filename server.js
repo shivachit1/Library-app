@@ -4,12 +4,11 @@ const Book = require('./models/book')
 const Author = require('./models/author')
 const jwt = require('jsonwebtoken')
 const JWT_SECRET = 'LIBRARY-APP'
+const keys = require('./keys')
 
-const MONGODB_URI = 'mongodb+srv://shivachit1:Duckpunk12@cluster0.uyn1b.gcp.mongodb.net/Library?retryWrites=true&w=majority'
+console.log('connecting to', keys.MONGODB_URI)
 
-console.log('connecting to', MONGODB_URI)
-
-mongoose.connect(MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
+mongoose.connect(keys.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false, useCreateIndex: true })
   .then(() => {
     console.log('connected to MongoDB')
   })
