@@ -200,7 +200,11 @@ app.get('*',(req,res)=>{
   res.sendFile(path.resolve(__dirname,'build','index.html'))
 })
 
-const port = process.env.PORT || 4000
-server.listen({port}).then(({ url }) => {
-  console.log(`Server ready at ${url}`);
+server.applyMiddleware({
+  path: '/', // you should change this to whatever you want
+  app,
+});
+
+app.listen({ port: process.env.PORT || 4000 }, () => {
+  console.log(`🚀  Server ready at http://localhost:4000`);
 });
