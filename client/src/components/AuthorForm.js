@@ -38,6 +38,7 @@ const AuthorForm = (props) => {
       <h2>Set BirthYear</h2>
 
       <form onSubmit={submit}>
+        <div>Select Author</div>
         <select
         value={name}
          onChange={({target})=>setName(target.value)}>
@@ -47,13 +48,14 @@ const AuthorForm = (props) => {
             ))}
           </select>
         <div>
-          born <input
+          Born Year<input
           type="number"
             value={setBornTo}
+            placeholder="i.e: 1994"
             onChange={({ target }) => setBornYear(parseInt(target.value))}
           />
         </div>
-        <button type='submit'>update author</button>
+        <button className="blueButton" type='submit'>update author</button>
       </form>
     </div>
   )

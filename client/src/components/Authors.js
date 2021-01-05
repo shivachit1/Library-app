@@ -17,16 +17,16 @@ const Authors = (props) => {
 
   return (
     <div>
-      <h2>authors</h2>
+      <h2>Authors</h2>
       <table>
         <tbody>
-          <tr>
-            <th></th>
+          <tr className="table-header">
+            <th>Name</th>
             <th>
-              born
+              Born
             </th>
             <th>
-              books
+              Books
             </th>
           </tr>
           {authors.map(a =>

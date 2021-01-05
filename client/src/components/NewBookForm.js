@@ -41,41 +41,48 @@ const NewBookForm = (props) => {
 
   return (
     <div>
-      <h2>Create new Book</h2>
+      <h2>Create New Book</h2>
       <form onSubmit={submit}>
         <div>
-          title
+          Title :
           <input
             value={title}
+            placeholder="Book Title"
             onChange={({ target }) => setTitle(target.value)}
           />
         </div>
         <div>
-          author
+          Author :
           <input
             value={author}
+            placeholder="Book Author"
             onChange={({ target }) => setAuthor(target.value)}
           />
         </div>
         <div>
-          published
+          Published :
           <input
             type='number'
             value={published}
+            placeholder="Published Year"
             onChange={({ target }) => setPublished(parseInt(target.value))}
           />
+        </div>
+        <div style={{margin:10}}>
+          Genres: 
+          <p>{genres.join(' ')}</p>
         </div>
         <div>
           <input
             value={genre}
+            placeholder="Book genre"
             onChange={({ target }) => setGenre(target.value)}
           />
-          <button onClick={addGenre} type="button">add genre</button>
+          <button className="blueButton" onClick={addGenre} type="button">add genre</button>
         </div>
-        <div>
-          genres: {genres.join(' ')}
-        </div>
-        <button type='submit'>create book</button>
+        
+        
+        <button className="greenButton" type='submit'>create book</button>
       </form>
     </div>
   )

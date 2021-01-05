@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 const Login = ({ setError, setToken }) => {
 
     const [username,setUsername] = useState('')
-    const [password,setPassword] = useState('secred')
+    const password = "secred"
 
     const [userLogin,result] = useMutation(USER_LOGIN,{
         onError: (error) => {
@@ -29,17 +29,24 @@ const Login = ({ setError, setToken }) => {
         <div>
             <form onSubmit={login}>
                 <div>
-                    username:
+                    <label>Username:</label>
                     <input name="username" placeholder="username"
                     onChange={({target})=>setUsername(target.value)}></input>
                 </div>
 
                 <div>
-                    password:
-                    <input name="password" value={password} placeholder="password"></input>
+                <label>Password:</label>
+                    <input type="password" name="password" defaultValue={password} placeholder="password"></input>
                 </div>
-                <button>login</button>
+                <button className="greenButton">login</button>
             </form>
+            <div>
+                <h3>Test with</h3>
+                
+                <p><strong>username: </strong>shivachit1</p>
+                <p><strong>password: </strong>secred</p>
+                
+            </div>
         </div>
     )
 }

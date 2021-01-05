@@ -38,17 +38,19 @@ const Books = (props) => {
   const books = result.data.allBooks
   return (
     <div>
-      <h2>books</h2>
+      <h2>Books</h2>
 
       <table>
         <tbody>
-          <tr>
-            <th></th>
+          <tr className="table-header">
             <th>
-              author
+              Book Title
             </th>
             <th>
-              published
+              Author
+            </th>
+            <th>
+              Published
             </th>
           </tr>
           {books.map(a =>

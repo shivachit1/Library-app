@@ -4,7 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon server.js"
+    "server": "nodemon server.js",
+    "build:ui": "rm -rf build && cd ./client/ && npm run build --prod && cp -r build ../",
+    "deploy": "git push origin master",
+    "deploy:full": "npm run build:ui && git add . && git commit -m uibuild && npm run deploy"
   },
   "author": "",
   "license": "ISC",

@@ -1,3 +1,4 @@
+const express = require('express')
 const {
   ApolloServer,
   UserInputError,
@@ -11,11 +12,13 @@ const keys = require("./keys");
 const Book = require("./models/book");
 const Author = require("./models/author");
 const User = require("./models/user");
+const path = require('path')
 
+const app = express()
 console.log("connecting to", keys.MONGODB_URI);
 
 mongoose
-  .connect(keys.MONGODB_URI, {
+  .connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false,
@@ -190,8 +193,10 @@ const server = new ApolloServer({
       return { currentUser };
     }
   },
-});
+})
+app.use(express.static(path.join(__dirname, "public", "index.html")))
 
-server.listen().then(({ url }) => {
+const port = process.env.PORT || 4000
+server.listen({port}).then(({ url }) => {
   console.log(`Server ready at ${url}`);
 });

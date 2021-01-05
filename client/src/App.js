@@ -34,9 +34,10 @@ const App = () => {
 
   if (!token) {
     return (
-      <div>
+      <div className="App">
+        <h2>Library-App</h2>
         <Notify errorMessage={errorMessage} />
-        <h2>Login</h2>
+        <h2 className="header">Login</h2>
         <Login
           setToken={setToken}
           setError={notify}
@@ -46,12 +47,14 @@ const App = () => {
   }
 
   return (
-    <div>
+    <div className="App">
+      <h2 className="header">Library-App</h2>
+      <p><strong>Username:</strong> shivachit1</p>
+      <button className="redButton" onClick={() => logOut()}>Logout</button>
       <div>
-        <button onClick={() => setPage('authors')}>authors</button>
-        <button onClick={() => setPage('books')}>books</button>
-        <button onClick={() => setPage('add')}>add book</button>
-        <button onClick={() => logOut()}>Logout</button>
+        <button className="linkButton" onClick={() => setPage('authors')}>Authors</button>
+        <button className="linkButton" onClick={() => setPage('books')}>Books</button>
+        <button className="linkButton" onClick={() => setPage('add')}>Add book</button>
       </div>
       <Notify errorMessage={errorMessage} />
       <NewBookForm setError={notify}/>
