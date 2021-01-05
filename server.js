@@ -194,7 +194,7 @@ const server = new ApolloServer({
     }
   },
 })
-app.use(express.static("public"))
+app.use(express.static("build"))
 
 const port = process.env.PORT || 4000
 server.listen({port}).then(({ url }) => {
