@@ -15,7 +15,7 @@ const User = require("./models/user");
 const path = require('path')
 
 const app = express()
-console.log("connecting to", keys.MONGODB_URI);
+
 
 mongoose
   .connect(process.env.MONGODB_URI, {
