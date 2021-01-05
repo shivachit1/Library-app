@@ -8,9 +8,18 @@ const AuthorForm = (props) => {
   const [setBornTo, setBornYear] = useState('')
 
   const [ changeBornYear ] = useMutation(EDIT_AUTHOR, {
-    refetchQueries: [ { query: ALL_AUTHORS } ],
     onError: (error) => {
         console.log(error.Error)
+      },
+      update: (store, response) => {
+        const dataInStore = store.readQuery({ query: ALL_AUTHORS })
+        store.writeQuery({
+          query: ALL_AUTHORS,
+          data: {
+            ...dataInStore,
+            allAuthors: dataInStore.allAuthors.map(author=>author.name===response.data.editAuthor.name ? response.data.editAuthor : author)
+          }
+        })
       }
   })
   const submit = (event) => {

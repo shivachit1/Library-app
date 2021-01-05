@@ -15,7 +15,7 @@ const NewBookForm = (props) => {
     onError: (error) => {
         console.log(error.Error)
       }
-  })
+    })
 
   if (!props.show) {
     return null
