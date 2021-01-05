@@ -192,6 +192,8 @@ const server = new ApolloServer({
       return { currentUser };
     }
   },
+  introspection: true,
+  playground: true,
 })
 app.use(express.static("build"))
 
