@@ -4,7 +4,7 @@ const {
   UserInputError,
   AuthenticationError,
   gql,
-} = require("apollo-server");
+} = require("apollo-server-express");
 const mongoose = require("mongoose");
 const jwt = require("jsonwebtoken");
 const JWT_SECRET = "LIBRARY-APP";
@@ -205,6 +205,6 @@ server.applyMiddleware({
   app,
 });
 
-server.listen({ port: process.env.PORT || 4000 }, () => {
+app.listen({ port: process.env.PORT || 4000 }, () => {
   console.log(`🚀  Server ready at http://localhost:4000`);
 });
