@@ -191,11 +191,12 @@ const server = new ApolloServer({
       );
       return { currentUser };
     }
-  }
+  },
+  graphql: true
 })
 app.use(express.static("build"))
 
-app.get('/',(req,res)=>{
+app.get('*',(req,res)=>{
   res.sendFile(path.resolve(__dirname,'build','index.html'))
 })
 
